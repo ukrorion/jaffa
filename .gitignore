@@ -10,7 +10,6 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/tmp
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -34,3 +33,4 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+.DS_Store
