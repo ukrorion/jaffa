@@ -7,16 +7,17 @@ gem 'rails', '~> 5.2.0.rc2'
 gem 'puma', '~> 3.11'
 
 gem 'pg'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'sass-rails', '~> 5.0'
 gem 'webpacker'
 gem 'haml'
 gem 'turbolinks', '~> 5'
+gem 'simple_form'
 
 gem 'jbuilder', '~> 2.5'
 
 # gem 'redis', '~> 4.0'
-# gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 # gem 'mini_magick', '~> 4.8'
 
