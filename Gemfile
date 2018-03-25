@@ -7,7 +7,8 @@ gem 'rails', '~> 5.2.0.rc2'
 gem 'puma', '~> 3.11'
 
 gem 'pg'
-gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7'
+gem 'devise'
 
 gem 'sass-rails', '~> 5.0'
 gem 'webpacker'
