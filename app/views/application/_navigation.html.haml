@@ -1,0 +1,20 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container
+    %a.navbar-brand
+    %button.navbar-toggler{ type: "button", 'data-toggle': "collapse", 'data-target': '#navbarsExample07',  'aria-controls': 'navbarsExample07',  'aria-expanded': 'false', 'aria-label': 'Toggle navigation' }
+      %span.navbar-toggler-icon
+
+    .collapse.navbar-collapse#navbarsExample07
+      %ul.navbar-nav.mr-auto
+        %li.nav-item
+          = link_to root_path, class: 'nav-link' do
+            %i.fas.fa-home
+            Home
+        %li.nav-item
+          = link_to new_user_session_path, class: 'nav-link' do
+            %i.fas.fa-sign-in-alt
+            Sign in
+        %li.nav-item
+          = link_to new_user_registration_path, class: 'nav-link' do
+            %i.far.fa-user
+            Sign up
