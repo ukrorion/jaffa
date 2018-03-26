@@ -11,11 +11,17 @@
             %i.fas.fa-home
             Home
       %ul.navbar-nav
-        %li.nav-item{ class: ('active' if controller_path.start_with?(%r{devise/sessions})) }
-          = link_to new_user_session_path, class: 'nav-link' do
-            %i.fas.fa-sign-in-alt
-            Sign in
-        %li.nav-item
-          = link_to new_user_registration_path, class: 'nav-link' do
-            %i.far.fa-user
-            Sign up
+        - unless current_user
+          %li.nav-item{ class: ('active' if controller_path.start_with?(%r{devise/sessions})) }
+            = link_to new_user_session_path, class: 'nav-link' do
+              %i.fas.fa-sign-in-alt
+              Sign in
+          %li.nav-item
+            = link_to new_user_registration_path, class: 'nav-link' do
+              %i.far.fa-user
+              Sign up
+        - else
+          %li.nav-item
+            = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
+              %i.fas.fa-sign-out-alt
+              Sign out
