@@ -1,16 +1,17 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   .container
-    %a.navbar-brand
-    %button.navbar-toggler{ type: "button", 'data-toggle': "collapse", 'data-target': '#navbarsExample07',  'aria-controls': 'navbarsExample07',  'aria-expanded': 'false', 'aria-label': 'Toggle navigation' }
+    %a.navbar-brand Company Title
+    %button.navbar-toggler{ type: "button", data: { toggle: "collapse", target: '#navbarsExample07' },  'aria-controls': 'navbarsExample07',  'aria-expanded': 'false', 'aria-label': 'Toggle navigation' }
       %span.navbar-toggler-icon
 
-    .collapse.navbar-collapse#navbarsExample07
+    .collapse.navbar-collapse.d-flex#navbarsExample07
       %ul.navbar-nav.mr-auto
-        %li.nav-item
+        %li.nav-item{ class: ('active' if controller_path.start_with?(%r{home})) }
           = link_to root_path, class: 'nav-link' do
             %i.fas.fa-home
             Home
-        %li.nav-item
+      %ul.navbar-nav
+        %li.nav-item{ class: ('active' if controller_path.start_with?(%r{devise/sessions})) }
           = link_to new_user_session_path, class: 'nav-link' do
             %i.fas.fa-sign-in-alt
             Sign in

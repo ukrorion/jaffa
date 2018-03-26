@@ -8,9 +8,10 @@
     = stylesheet_pack_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag    'application', 'data-turbolinks-track': 'reload'
 
-  %body
+  %body{ data: { path: "#{controller_path}/#{action_name}" } }
     %header
     = render 'navigation'
     %section
-      = yield
+      .container
+        = yield
     %footer
