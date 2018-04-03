@@ -10,6 +10,7 @@
       = f.input :last_name
       = f.input :middle_name
       = f.input :tax_number
+      = f.input :birthday, input_html: { class: 'birthday' }
   .form-actions.d-flex.justify-content-center
     = f.button :submit, "Sign up", class: 'btn btn-primary m-2'
     = link_to 'Log in', [:new, :user, :session], class: 'btn btn-info m-2'

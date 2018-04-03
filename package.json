@@ -8,6 +8,8 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.8",
     "@rails/webpacker": "^3.3.1",
     "bootstrap": "^4.0.0",
+    "bootstrap-datepicker": "^1.8.0",
+    "datetime-picker": "^0.6.0",
     "jquery": "^3.3.1",
     "jquery-ujs": "^1.2.2",
     "popper.js": "^1.14.1",
