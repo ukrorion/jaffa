@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'webpacker'
 gem 'haml'
 gem 'turbolinks', '~> 5'
-gem 'simple_form'
+gem 'simple_form', '~> 3.5'
 
 gem 'jbuilder', '~> 2.5'
 

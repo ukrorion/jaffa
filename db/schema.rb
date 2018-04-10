@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_03_28_202301) do
     t.string "apartment", limit: 80
     t.string "city", limit: 80
     t.string "region", limit: 80
+    t.string "postal_code", limit: 80
     t.string "country", limit: 80
     t.string "addressable_type"
     t.bigint "addressable_id"
@@ -51,7 +52,7 @@ ActiveRecord::Schema.define(version: 2018_03_28_202301) do
     t.string "first_name", limit: 50
     t.string "last_name", limit: 50
     t.string "middle_name", limit: 50
-    t.integer "tax_number"
+    t.bigint "tax_number"
     t.datetime "birthday"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

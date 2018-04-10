@@ -8,20 +8,25 @@
       %ul.navbar-nav.mr-auto
         %li.nav-item{ class: ('active' if controller_path.start_with?(%r{home})) }
           = link_to root_path, class: 'nav-link' do
-            %i.fas.fa-home
+            = fas_icon :home
             Home
       %ul.navbar-nav
         - unless current_user
           %li.nav-item{ class: ('active' if controller_path.start_with?(%r{devise/sessions})) }
             = link_to new_user_session_path, class: 'nav-link' do
-              %i.fas.fa-sign-in-alt
+              = fas_icon 'sign-in-alt'
               Sign in
           %li.nav-item
             = link_to new_user_registration_path, class: 'nav-link' do
-              %i.far.fa-user
+              = far_icon :user
               Sign up
         - else
-          %li.nav-item
-            = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
-              %i.fas.fa-sign-out-alt
-              Sign out
+          %li.nav-item.dropdown
+            = link_to current_user.first_name, '#', class: 'nav-link dropdown-toggle', id: 'profile-dropdown', role: 'button', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }
+            .dropdown-menu{ aria: { labelledby: 'profile-dropdown' } }
+              = link_to [:edit, current_user, :registration], class: 'dropdown-item' do
+                = fas_icon :user
+                Your Profile
+              = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
+                = fas_icon 'sign-out-alt'
+                Sign out
