@@ -4,5 +4,36 @@
 
 @import 'custom-form'
 
+body
+  background-color: #eee
+
+header
+  margin-bottom: 1rem
+
+section
+  &.flash
+    margin: 0 0 1rem 0
+    .container
+      padding: 0
+      .alert
+        margin-bottom: 0
+        padding: 0.5rem 1rem
+
+section
+  .container
+    &.main
+      background-color: #fff
+      &::after
+        content: ''
+        display: inline-block
+        height: 1rem
+      header
+        background: #ff9e00
+        margin: 0 -15px 1rem -15px
+        padding: .6rem 1rem
+        h3
+          margin: 0
+          line-height: auto
+
 abbr[title='required']
   color: red

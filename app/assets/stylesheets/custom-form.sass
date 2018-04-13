@@ -1,8 +1,12 @@
 .form-group
-  .help-block
-    color: lighten($danger, 10%)
-    margin-top: 5px
-
-.form-group.has-error
-  .form-control
-    border-color: $danger
+  p.help-block
+    color: $gray-500
+    font-style: italic
+    margin-top: 3px
+  &.has-error
+    .form-control
+      border-color: $danger
+    span.help-block
+      display: inline-block
+      margin-top: 3px
+      color: red

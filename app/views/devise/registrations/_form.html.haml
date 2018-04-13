@@ -1,26 +1,30 @@
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   .form-inputs.row
     .col-sm-6
-      %h4 Personal Information
+      %h5 Personal Information
       = f.input :email, required: true, autofocus: true
       - unless resource.persisted?
-        = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-        = f.input :password_confirmation, required: true
+        .row
+          .col-sm-6= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+          .col-sm-6= f.input :password_confirmation, required: true
       - else
         = f.input :current_password, require: true
-      = f.input :first_name
       = f.input :last_name
-      = f.input :middle_name
+      .row
+        .col-sm-6= f.input :first_name
+        .col-sm-6= f.input :middle_name
       = f.input :tax_number
       = f.input :birthday, as: :string, input_html: { class: 'birthday' }
     .col-sm-6
-      %h4 Address
+      %h5 Address
       = simple_fields_for :address do |ff|
-        = ff.input :street, require: true
-        = ff.input :apartment, require: true
+        .row
+          .col-sm-8= ff.input :street, require: true
+          .col-sm-4= ff.input :apartment, require: true
         = ff.input :city, require: true
-        = ff.input :region
-        = ff.input :postal_code
+        .row
+          .col-sm-8= ff.input :region
+          .col-sm-4= ff.input :postal_code
         = ff.input :country, as: :string
   .form-actions.d-flex.justify-content-center
     = f.button :submit, "Sign up", class: 'btn btn-primary m-2'

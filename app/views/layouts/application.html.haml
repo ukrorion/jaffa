@@ -10,9 +10,9 @@
 
   %body{ data: { path: "#{controller_path}/#{action_name}" } }
     %header
-    = render 'navigation'
+      = render 'navigation'
+    = render_flash
     %section
-      .container
-        = render_flash
+      .container.main
         = yield
     %footer

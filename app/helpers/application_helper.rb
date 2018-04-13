@@ -9,13 +9,15 @@ module ApplicationHelper
 
   def render_flash
     return if flash.empty?
-    content_tag :div do
-      flash.each do |label, content|
-        css_class_name = case label
-                         when :notice, 'notice' then 'success'
-                         when :alert, 'alert' then 'danger'
-                         end
-        concat content_tag(:div, content, class: "alert alert-#{css_class_name}")
+    content_tag :section, class: 'flash' do
+      content_tag :div, class: 'container' do
+        flash.each do |label, content|
+          css_class_name = case label
+                           when :notice, 'notice' then 'success'
+                           when :alert, 'alert' then 'danger'
+                           end
+          concat content_tag(:div, content, class: "alert alert-#{css_class_name}")
+        end
       end
     end
   end
