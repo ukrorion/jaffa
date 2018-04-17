@@ -24,6 +24,14 @@
           %li.nav-item.dropdown
             = link_to current_user.first_name, '#', class: 'nav-link dropdown-toggle', id: 'profile-dropdown', role: 'button', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }
             .dropdown-menu{ aria: { labelledby: 'profile-dropdown' } }
+              - if current_user.company&.persisted?
+                = link_to company_path(current_user.company), class: 'dropdown-item' do
+                  = fas_icon :cogs
+                  Company Settings
+              - else
+                = link_to [:new, :companies], class: 'dropdown-item' do
+                  = fas_icon :cogs
+                  Add Company
               = link_to [:edit, current_user, :registration], class: 'dropdown-item' do
                 = fas_icon :user
                 Your Profile

@@ -27,5 +27,6 @@
           .col-sm-4= ff.input :postal_code
         = ff.input :country, as: :string
   .form-actions.d-flex.justify-content-center
-    = f.button :submit, "Sign up", class: 'btn btn-primary m-2'
-    = link_to 'Log in', [:new, :user, :session], class: 'btn btn-info m-2'
+    = f.button :submit, class: 'btn btn-primary m-2'
+    - if resource.new_record?
+      = link_to 'Log in', [:new, :user, :session], class: 'btn btn-info m-2'

@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
   has_one :address, as: :addressable
-  belongs_to :company
+  belongs_to :company, inverse_of: :users
 
   validates :tax_number, presence: true, format: { with: /\A\d+\z/, message: "only allows letters" }, length: { is: 10 }
   validates :first_name, presence: true
