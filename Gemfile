@@ -3,20 +3,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.0'
 
-gem 'rails', '~> 5.2.0.rc2'
-gem 'puma', '~> 3.11'
+gem 'rails'
+gem 'puma'
 
 gem 'pg'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'webpacker'
 gem 'haml'
-gem 'turbolinks', '~> 5'
-gem 'simple_form', '~> 3.5'
+gem 'turbolinks'
+gem 'simple_form'
 
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder'
 
 # gem 'redis', '~> 4.0'
 # gem 'capistrano-rails', group: :development
