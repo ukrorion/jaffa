@@ -7,8 +7,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
+  has_one :firm, class_name: 'Company', foreign_key: 'owner_id', inverse_of: :owner
+  belongs_to :company, optional: true
   has_one :address, as: :addressable
-  belongs_to :company, inverse_of: :users
+
+  accepts_nested_attributes_for :firm, :address
 
   validates :tax_number, presence: true, format: { with: /\A\d+\z/, message: "only allows letters" }, length: { is: 10 }
   validates :first_name, presence: true

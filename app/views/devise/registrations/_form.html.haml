@@ -17,12 +17,12 @@
       = f.input :birthday, as: :string, input_html: { class: 'birthday' }
     .col-sm-6
       %h5 Company Information
-      = f.simple_fields_for :company do |ff|
+      = f.simple_fields_for :firm do |ff|
         = ff.input :name
         = ff.input :tax_number
         = ff.input :certificate_number
       %h5 Address
-      = simple_fields_for :address do |ff|
+      = f.simple_fields_for :address do |ff|
         .row
           .col-sm-8= ff.input :street, require: true
           .col-sm-4= ff.input :apartment, require: true

@@ -11,5 +11,5 @@ fontawesome.library.add(solid)
 fontawesome.library.add(regular)
 
 $(() => {
-  $('.birthday').datepicker();
+  $('.birthday').datepicker({format: 'dd/mm/yyyy'});
 })

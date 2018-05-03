@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  %w[fas far].each do |prefix|
-    define_method "#{prefix}_icon" do |name|
-      content_tag :i, '',class: "#{prefix} fa-#{name}"
-    end
+  def fas_icon(name, options = nil)
+    content_tag :i, '', (options.presence || {}).merge(class: "fas fa-#{name}")
+  end
+
+  def far_icon(name, options = nil)
+    content_tag :i, '', (options.presence || {}).merge(class: "far fa-#{name}")
   end
 
   def render_flash
@@ -16,7 +18,12 @@ module ApplicationHelper
                            when :notice, 'notice' then 'success'
                            when :alert, 'alert' then 'danger'
                            end
-          concat content_tag(:div, content, class: "alert alert-#{css_class_name}")
+          concat(content_tag(:div, class: "alert alert-#{css_class_name}") do
+            concat(content)
+            concat(button_tag(type: 'button', class: 'close', data: { dismiss: 'alert' }, aria: { label: 'Close' }) do
+              content_tag :span, fas_icon(:times, width: '12', height: '12'), 'aria-hidden': true
+            end)
+          end)
         end
       end
     end
