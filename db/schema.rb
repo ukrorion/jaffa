@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_24_192258) do
+ActiveRecord::Schema.define(version: 2018_05_10_171533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 2018_04_24_192258) do
     t.string "certificate_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "owner_id"
-    t.index ["owner_id"], name: "index_companies_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,6 +74,7 @@ ActiveRecord::Schema.define(version: 2018_04_24_192258) do
     t.bigint "tax_number"
     t.datetime "birthday"
     t.bigint "company_id"
+    t.integer "role"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

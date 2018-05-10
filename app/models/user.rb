@@ -3,15 +3,15 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  enum role: { sysadmin: 0, owner: 1, admin: 2, accountant: 3, employee: 4 }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
-  has_one :firm, class_name: 'Company', foreign_key: 'owner_id', inverse_of: :owner
   belongs_to :company, optional: true
   has_one :address, as: :addressable
 
-  accepts_nested_attributes_for :firm, :address
+  accepts_nested_attributes_for :address
 
   validates :tax_number, presence: true, format: { with: /\A\d+\z/, message: "only allows letters" }, length: { is: 10 }
   validates :first_name, presence: true

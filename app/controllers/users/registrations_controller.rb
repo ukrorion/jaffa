@@ -7,15 +7,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super do |resource|
-      resource.build_firm
       resource.build_address
     end
   end
 
   # POST /resource
   def create
-    byebug
-    super
+    super do |resource|
+      resource.role = 1
+    end
   end
 
   # GET /resource/edit
@@ -47,7 +47,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
       user_params.permit(:email, :password, :password_confirmation, :last_name, :first_name, :middle_name, :tax_number, :birthday,
-                         firm_attributes: [:name, :tax_number, :certificate_number],
                          address_attributes: [:street, :apartment, :city, :region, :postal_code, :country])
     end
   end
