@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protected
     def after_sign_in_path_for(resource)
       case resource
-      when ->(user) { user.admin? }
+      when ->(user) { user.sysadmin? || user.admin? }
         admin_root_path
       else
         employee_root_path

@@ -1,0 +1,17 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container
+    %a.navbar-brand{ style: 'color: white' } JaFFa
+    %button.navbar-toggler{ type: "button", data: { toggle: "collapse", target: '#navbarsExample07' },  'aria-controls': 'navbarsExample07',  'aria-expanded': 'false', 'aria-label': 'Toggle navigation' }
+      %span.navbar-toggler-icon
+
+    .collapse.navbar-collapse.d-flex#navbarsExample07.justify-content-end
+      %ul.navbar-nav
+        - unless current_user
+          %li.nav-item{ class: ('active' if controller_path.start_with?(%r{devise/sessions})) }
+            = link_to new_user_session_path, class: 'nav-link' do
+              = fas_icon 'sign-in-alt'
+              Sign in
+          %li.nav-item
+            = link_to new_user_registration_path, class: 'nav-link' do
+              = far_icon :user
+              Sign up
