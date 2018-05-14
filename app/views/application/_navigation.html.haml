@@ -17,7 +17,7 @@
               Sign up
         - else
           %li.nav-item{ class: ('active' if controller_path.start_with?(%r{home})) }
-            = link_to root_path, class: 'nav-link' do
+            = link_to authenticated_root_path, class: 'nav-link' do
               = fas_icon 'tachometer-alt'
               Dashboard
           %li.nav-item
@@ -31,15 +31,15 @@
           %li.nav-item.dropdown
             = link_to current_user.first_name, '#', class: 'nav-link dropdown-toggle', id: 'profile-dropdown', role: 'button', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }
             .dropdown-menu{ aria: { labelledby: 'profile-dropdown' } }
-              - if current_user.company&.persisted?
-                = link_to company_path(current_user.company), class: 'dropdown-item' do
+              - if current_user.company&.persisted? && current_user.admin?
+                = link_to companies_path(current_user.company), class: 'dropdown-item' do
                   = fas_icon :cogs
                   Company Settings
-              - else
+              - elsif current_user.admin?
                 = link_to [:new, :companies], class: 'dropdown-item' do
                   = fas_icon :cogs
-                  Add Company
-              = link_to [:edit, current_user, :registration], class: 'dropdown-item' do
+                  Add Companys
+              = link_to [:admin, :profile], class: 'dropdown-item' do
                 = fas_icon :user
                 Your Profile
               = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do

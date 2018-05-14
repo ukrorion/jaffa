@@ -3,8 +3,30 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'home#index'
 
-  resource :company
+  devise_scope :user do
+    authenticated :user do
+      root 'home#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
+
+  namespace :admin do
+    root to: 'dashboard#show'
+
+    resource :profile
+    resource :company do
+      resources :users
+      resources :bank_accounts
+    end
+  end
+
+  namespace :employee do
+    root to: 'dashboard#show'
+
+    resource :profile
+  end
 end

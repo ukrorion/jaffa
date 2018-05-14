@@ -42,6 +42,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'faker'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
