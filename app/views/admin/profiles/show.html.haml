@@ -1,1 +1,33 @@
-this is your profile
+%header
+  %h3= "Your Profile"
+
+.row
+  .col-sm-4
+    Should be image here
+  .col-sm-8
+    .card.mb-3
+      .card-header Personal Info
+      .card-body
+        %p.card-text
+          = current_user.full_name
+          %br
+          Email
+          = current_user.email
+          %br
+          Birthday
+          = l(current_user.birthday.to_date)
+          %br
+          IPN
+          = current_user.tax_number
+
+    .card.mb-3
+      .card-header Address
+      .card-body
+        %p.card-text
+          = current_user.address.inspect
+
+    .card
+      .card-header Phones
+      .card-body
+        %p.card-text
+          = current_user.address.inspect

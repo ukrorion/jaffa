@@ -18,4 +18,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :middle_name, presence: true
   validates :birthday, presence: true
+
+  def full_name
+    "#{last_name} #{first_name} #{middle_name}"
+  end
 end
